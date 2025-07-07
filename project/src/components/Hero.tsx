@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Download, ExternalLink } from 'lucide-react';
 import dipeshImg from '../assets/dipesh.png';
 
 const Hero: React.FC = () => {
-  const [displayText, setDisplayText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayText, setDisplayText] = useState<string>('');
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
   const fullText = 'Building virtual worlds with code and creativity...';
 
   useEffect(() => {
     if (currentIndex < fullText.length) {
       const timeout = setTimeout(() => {
-        setDisplayText(prev => prev + fullText[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
+        setDisplayText((prev: string) => prev + fullText[currentIndex]);
+        setCurrentIndex((prev: number) => prev + 1);
       }, 100);
       return () => clearTimeout(timeout);
     }
